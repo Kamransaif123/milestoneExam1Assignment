@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highest Marks Finder</title>
+    <style>
+        body {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;       
+        }
+        main {
+            background-color: #EEEEEE;
+            border: 5px solid #393E46;
+            border-radius: 10px;
+            width: 50vw;
+        }
+        h1 {
+            text-align: center;
+        }
+        div {
+            display: grid;
+            grid-template-columns: auto auto ;
+            gap: 20px;
+            padding: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            font-weight: bold;
+        }
+        button {
+            position: relative;
+            left: 30px;
+            width: 200px;
+            background-color: bisque;
+            border-radius: 3px;
+        }
+        label {
+            padding-left: 50px;
+            
+        }
+        output {
+            border: 2px solid black;
+            /* width: 100px; */
+            background-color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1> Highest Marks Calculator </h1>
+        <div>
+            <label for="Student1">Student1 Marks:</label>
+            <input type="number" id="Student1">
+            <label for="Student2">Student2 Marks:</label>
+            <input type="number" id="Student2">
+            <label for="Student3">Student3 Marks:</label>
+            <input type="number" id="Student3">
+            <label for="Student4">Student5 Marks:</label>
+            <input type="number" id="Student4">
+            <label for="Student5">Student5 Marks:</label>
+            <input type="number" id="Student5">
+            <button onclick="highestMarks()">Highest Marks</button>
+            <output></output>
+        </div>
+    </main>
+    
+
+    <script>
+        function highestMarks () {
+            const student1 = document.querySelector("#Student1").value;
+            const student2 = document.querySelector("#Student2").value;
+            const student3 = document.querySelector("#Student3").value;
+            const student4 = document.querySelector("#Student4").value;
+            const student5 = document.querySelector("#Student5").value;
+            let highestMark = Math.max(student1,student2,student3,student4,student5);
+            document.querySelector("output").innerText = highestMark;
+        }
+    </script>
+</body>
+</html>

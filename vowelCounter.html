@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: azure;
+            border: 5px solid greenyellow;
+            border-radius: 10px;
+            height: 50vh;
+            width: 50vw;
+        }
+        h1 {
+            color: darkgrey;
+            font-size: 3rem;
+            font-weight: 600;
+            position: absolute;
+            top: 20px;
+        }
+        button {
+            background-color: cornsilk;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        p {
+            display: inline;
+        }
+        div {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Vowel Counter</h1>
+        <div>
+            <label for="name">Enter your name:</label>
+            <input type="text">
+            <button onclick="vowelCounter()">Submit</button> <br>
+            <p>No. of vowels:</p> <span></span>
+        </div>
+    </main>
+
+    <script>
+        function vowelCounter() {
+            let name = document.querySelector("input").value;
+            let Counter  = name.match(/[aeiou]/g);
+            if (Counter == null) {
+                document.querySelector("span").innerText = 0;
+            }
+            else {
+                document.querySelector("span").innerText = Counter.length;
+            }
+        }
+    </script>
+</body>
+</html>

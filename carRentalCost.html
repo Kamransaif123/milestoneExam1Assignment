@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        main {
+            display: grid;
+            border: 5px outset cornsilk;
+            border-radius: 10px;
+            box-shadow: 0 0 5px;
+            height: 50vh;
+            width: 50vw;
+            background-color: gainsboro; 
+        }
+        h1 {
+            text-align: center;
+        }
+        div {
+            display: grid;
+            grid-template-columns: auto auto;
+            padding: 10px 40px;
+            margin-bottom: 30px;
+            font-size: larger;
+            font-weight: 400;
+        }
+        button,input,select,output {
+            width: 150px;
+            height: 25px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        span {
+            grid-row: 4;
+        }
+        output {
+            grid-row: 4;
+            background-color: #fff;
+        }
+        button {
+            background-color: lightgrey;
+            color: azure;
+            font-size: large;
+            transition: 1s;
+        }
+        button:hover {
+            background-color: darksalmon;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Car Rental Cost</h1>
+        <div>
+            <label for="carType">Enter the car type:</label>
+            <select id="carType">
+                <option value="Economy">Economy</option>
+                <option value="Midsize">Midsize</option>
+                <option value="Luxury">Luxury</option>
+            </select>
+            <label for="duration">Enter the duration for which car was rented:</label>
+            <input type="number" id="duration">
+            <button onclick="totalCost()">Calculate</button>
+            <span>Total cost is:</span>
+            <output></output>
+        </div>
+    </main>
+
+    <script>
+        function totalCost() {
+            let duration = document.querySelector("#duration").value;
+            let carType = document.querySelector("#carType").value;
+            let totalCost;
+            if(carType == "Economy") {
+                totalCost = 4000 * duration;
+            }
+            else if(carType == "Midsize") {
+                totalCost = 10000 * duration;
+            }
+            else if(carType == "Luxury") {
+                totalCost = 20000 * duration;
+            }
+            document.querySelector("output").innerText = totalCost;
+        }
+    </script>
+</body>
+</html>

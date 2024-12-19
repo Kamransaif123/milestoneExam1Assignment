@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Mixer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .colorMixture {
+            background-color: darkgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            width: 80vh;
+            border: 5px solid greenyellow;
+            box-shadow: black;
+        }
+        h1 {
+            position: absolute;
+            top: 50px;     
+            font-size: 5rem;
+            color: aqua;
+            text-shadow: black;
+            font-weight: 800;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .colorMixture > div {
+            display: grid;
+            gap: 15px;
+            font-size: 1.5rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        label {
+            grid-row: 1;
+        }
+        output {
+            border: 1px solid black;
+            border-radius: 3px;
+            height: 30px;
+        }
+        button {
+            height: 30px;
+            background-color: antiquewhite;
+            border-radius: 5px;
+        }
+        input {
+            height: 25px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="colorMixture">
+        <h1>Color Mixture</h1>
+        <div>
+            <label for="color1">Enter 1st color:</label>
+            <input type="text" id="color1">
+            <label for="color2">Enter 2nd color:</label>
+            <input type="text" id="color2">
+            <button onclick="colorMixture()">Resultant Color</button>
+            <output></output>
+        </div>
+    </div>
+
+    <script>
+        function colorMixture() {
+            color1 = document.querySelector("#color1").value;
+            color2 = document.querySelector("#color2").value;
+            resultantColor = document.querySelector("output");
+            if (color1 == 'red' && color2 == 'blue' || color1 == 'blue' && color2 == 'red') {
+                resultantColor.innerText = 'purple';
+            }
+            else if (color1 == 'red' && color2 == 'yellow' || color1 == 'yellow' && color2 == 'red') {
+                resultantColor.innerText = 'orange';
+            }
+            else if (color1 == 'blue' && color2 == 'yellow' || color1 == 'yellow' && color2 == 'blue') {
+                resultantColor.innerText = 'green';
+            }
+            else {
+                resultantColor.innerText = "Invalid color combination!";
+            }
+        }
+        
+    </script>
+</body>
+</html>

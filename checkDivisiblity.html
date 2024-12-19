@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisibility Check by 3 but not by 2</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60vw;
+            height: 70vh;
+            border: 5px solid orange;
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background-color: silver;
+        }
+        .main {
+            display: grid;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: aquamarine;
+        }
+        h1 {
+            position: absolute;
+            top: 20px;
+            font-size: 3rem;
+        }
+        output {
+            border: 1px solid black;
+            width: auto;
+            height: 20px;
+            background-color: #fff;
+        }
+        button {
+            font-size: large;
+            background-color: bisque;
+            border-radius: 4px;
+        }
+        button:hover {
+            cursor: pointer;
+            background-color: cornsilk;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Print all numbers divisible by 3 but not 2</h1>
+        <div class="main">
+            <label for="number">Enter an array of natural numbers:</label>
+            <input type="text">
+            <button onclick="numbersDivisibleBy2NotBy3()">OK</button>
+            <output></output>
+        </div>
+    </div>
+
+    <script>
+        function numbersDivisibleBy2NotBy3() {
+            let arr = document.querySelector("input").value;
+            let result = [];
+            for (let i=0; i<arr.length; i++) {
+                let num = arr[i];
+                if (num%3 == 0 && num%2 != 0) {
+                    result.push(num);
+                }
+            } 
+            document.querySelector("output").textContent = result;
+        }
+    </script>
+</body>
+</html>

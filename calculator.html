@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: bisque;
+            
+        }
+        main {
+            height: 70vh;
+            /* display: flex;
+            justify-content: center; */
+            /* align-items: center; */
+        }
+        div {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            gap: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 7vw;
+        }
+        label {
+            grid-row: 1;
+        }
+        button {
+            grid-row: 1;
+        }
+        output {
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: #fff;
+            grid-column: 5;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <main>
+        <div class="Calculator">
+            <title>Calculator</title>
+            <label for="number1"> Enter 1st number: </label> 
+            <input type="number" name="number" id="number1"> 
+            <label for="arithmetic operator"> Enter arithmetic operator: </label> 
+            <input type="text" name="operator" id="arithmetic operator">
+            <label for="number2"> Enter 2nd number: </label>  
+            <input type="number" name="number" id="number2">   
+            <button onclick="Calculator()"> = </button>
+            <label for="output">Output:</label>
+            <output></output>
+        </div>
+    </main>
+    
+    <script>
+        
+        function Calculator() {
+            const number1 = document.getElementById("number1").value;
+            const number2 = document.getElementById("number2").value;
+            let arithmeticOperator =document.getElementById("arithmetic operator").value;
+            let outputElement = document.querySelector("output");
+            switch(arithmeticOperator) {
+                case '+':
+                    outputElement.innerText = number1 + number2;
+                    break;
+                case '-':
+                    outputElement.innerText = number1 - number2;
+                    break;
+                case '*':
+                    outputElement.innerText = number1 * number2;
+                    break;
+                case '/':
+                    if(number2 === 0) {
+                        outputElement.innerText = "Not Defined!";
+                    }
+                    else {
+                        outputElement.innerText = number1 / number2;
+                    }
+                    break;
+                default:
+                    outputElement.innerText = "Invalid Operator!";   
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

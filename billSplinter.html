@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator</title>
+    <style>
+        main {
+            height: 50vh;
+            width: 50vw;
+            background-color: floralwhite;
+            border: 5px groove gray;
+            box-shadow: 0 0 6px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+        }
+        div {
+            margin: auto;
+            text-align: center;
+        }
+        label,input,button,pre {
+            margin: 10px;
+
+        }
+        button {
+            border: 2px ridge black;
+            border-radius: 3px;
+            font-size: 15px;
+            box-shadow: 0 0 2px;
+            padding: 2px 5px;
+            color: green;
+        }
+        button:hover {
+            background-color: lightgoldenrodyellow;
+            border: none;
+            cursor: pointer;
+            color: black;
+        }
+        pre {
+            font-size: 1.5em;
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Bill Calculator</h1>
+        <div>
+            <label for="costPerDish">Enter the cost per dish:</label> 
+            <input type="number" id="costPerDish"> <br>
+            <label for="numberOfPeople">Enter the no. of people:</label>
+            <input type="number" id="numberOfPeople"> <br>
+            <button id="btn">Calculate Bill</button> <br>
+            <pre></pre>
+        </div>
+    </main>
+        
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+        $("#btn").click(function() {
+            let costPerDish = parseFloat($("#costPerDish").val());
+            let numberOfPeople = parseFloat($("#numberOfPeople").val());
+            let totalBill = costPerDish * numberOfPeople;
+            let billPerPerson = totalBill / numberOfPeople;
+            $("pre").text("Total bill is: " + totalBill + "\nBill per person is: " + billPerPerson);
+        })
+    </script>
+</body>
+</html>

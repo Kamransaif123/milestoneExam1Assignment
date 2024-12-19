@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Eradicator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #F1EFEF;
+            border: 5px solid brown;
+            border-radius: 10px;
+            height: 60vh;
+            width: 50vw;
+        }
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
+            position: absolute;
+            top: 20px;
+        }
+        div {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: large;
+        }
+        button {
+            grid-column: 1/3;
+            width: 100px;
+            font-size: large;
+            border-radius: 4px;
+            background-color: beige;
+        }
+        input {
+            border-radius: 5px;
+        }
+        output {
+            grid-column: 1/3;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Duplicate Eradicator</h1>
+        <div>
+            <label for="product1 name">Enter the name of 1st product:</label>
+            <input type="text" id="product1">
+            <label for="product2 name">Enter the name of 2nd product:</label>
+            <input type="text" id="product2">
+            <label for="product3 name">Enter the name of 3rd product:</label>
+            <input type="text" id="product3">
+            <label for="product4 name">Enter the name of 4th product:</label>
+            <input type="text" id="product4">
+            <label for="product5 name">Enter the name of 5th product:</label>
+            <input type="text" id="product5">
+            <button onclick="duplicateRemover()">Continue</button>
+            <p>Your products list:</p>
+            <output></output>
+        </div>
+    </main>
+
+    <script>
+        function duplicateRemover() {
+            let product1 = document.querySelector("#product1").value;
+            let product2 = document.querySelector("#product2").value;
+            let product3 = document.querySelector("#product3").value;
+            let product4 = document.querySelector("#product4").value;
+            let product5 = document.querySelector("#product5").value;
+            let output = [product1,product2,product3,product4,product5];
+            let finalOutput = [...new Set(output)];
+            document.querySelector("output").innerText = finalOutput;
+        }
+    </script>
+</body>
+</html>
